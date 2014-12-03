@@ -11,6 +11,8 @@
 
 @implementation CBLineChart
 
+
+
 - (instancetype)init
 {
     self = [super init];
@@ -25,6 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         NSLog(@"initWithFrame");
+        [self drawText];
     }
     return self;
 }
@@ -44,8 +47,20 @@
 {
     [super layoutSubviews];
     
+    
 }
 
+-(void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    [self drawText];
+}
+
+-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
+{
+    [super drawLayer:layer inContext:ctx];
+    [self drawText];
+}
 
 -(void)setFrame:(CGRect)frame
 {
@@ -58,6 +73,18 @@
 {
     
     
+}
+
+-(void)drawText{
+    //绘制到指定的区域内容
+    NSString *str=@"Star Walk is the most beautiful stargazing app you’ve ever seen on a mobile device. It will become your go-to interactive astro guide to the night sky, following your every movement in real-time and allowing you to explore over 200, 000 celestial bodies with extensive information about stars and constellations that you find.";
+    CGRect rect= CGRectMake(20, 50, 280, 300);
+    UIFont *font=[UIFont systemFontOfSize:18];//设置字体
+    UIColor *color=[UIColor redColor];//字体颜色
+    NSMutableParagraphStyle *style=[[NSMutableParagraphStyle alloc]init];//段落样式
+    NSTextAlignment align=NSTextAlignmentLeft;//对齐方式
+    style.alignment=align;
+    [str drawInRect:rect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color,NSParagraphStyleAttributeName:style}];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CBChartView.h"
+#import "CBLineChart.h"
 
 
 @interface ViewController ()
@@ -21,14 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    CBChartView *chartView = [CBChartView charView];
-    chartView.xValues = @[@"10", @"11", @"12", @"13", @"14"];
-    chartView.yValues = @[@"75", @"20", @"30", @"50"];
+    CBChartView *chartView = [[CBChartView alloc] initWithFrame:CGRectMake(10, 30, 300, 200)];
     [self.view addSubview:chartView];
-//    chartView.frame = CGRectMake(0, 100, 100, 100);
+    
+    
+    chartView.xValues = @[@"10", @"11", @"12", @"13", @"14", @"15", @"16", @"as"];
+    chartView.yValues = @[@"75", @"20", @"30", @"50"];
+    
+//    CBLineChart *lineChart = [[CBLineChart alloc] initWithFrame:CGRectMake(10, 300, 100, 100)];
+//    [self.view addSubview:lineChart];
+//    chartView.frame = CGRectMake(10, 30, 200, 200);
 }
-
 
 
 -(void)bgroudPaint
@@ -38,6 +42,7 @@
     bgView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:bgView];
     self.bgView = bgView;
+    
     /*
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
     lineLayer.bounds = bgView.layer.bounds;
