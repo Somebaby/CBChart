@@ -53,7 +53,13 @@
 -(void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    [self drawText];
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGContextMoveToPoint(ctx, 20, 100);
+    
+//    CGContextAddLines(ctx, const CGPoint *points, 3);
+    
 }
 
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx

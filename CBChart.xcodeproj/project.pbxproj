@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3552CC61A2FF2E100AF88B6 /* CBBgLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3552CC51A2FF2E100AF88B6 /* CBBgLayer.m */; };
 		C36569181A2BF4FE0069177A /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36569171A2BF4FE0069177A /* CBChartView.m */; };
 		C36E4F0D1A2DC40E00ABB111 /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C36E4F0C1A2DC40E00ABB111 /* UIView+FrameSet.m */; };
 		C3D3C45D1A284D7E001271BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C45C1A284D7E001271BF /* main.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3552CC41A2FF2E100AF88B6 /* CBBgLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBgLayer.h; sourceTree = "<group>"; };
+		C3552CC51A2FF2E100AF88B6 /* CBBgLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBBgLayer.m; sourceTree = "<group>"; };
 		C36569161A2BF4FE0069177A /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
 		C36569171A2BF4FE0069177A /* CBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBChartView.m; sourceTree = "<group>"; };
 		C36E4F0B1A2DC40E00ABB111 /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 		C3D3C4801A284D99001271BF /* CBChart */ = {
 			isa = PBXGroup;
 			children = (
+				C3552CC41A2FF2E100AF88B6 /* CBBgLayer.h */,
+				C3552CC51A2FF2E100AF88B6 /* CBBgLayer.m */,
 				C3D3C4811A284DB4001271BF /* CBLineChart.h */,
 				C3D3C4821A284DB4001271BF /* CBLineChart.m */,
 				C36569161A2BF4FE0069177A /* CBChartView.h */,
@@ -242,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3552CC61A2FF2E100AF88B6 /* CBBgLayer.m in Sources */,
 				C3D3C4631A284D7E001271BF /* ViewController.m in Sources */,
 				C3D3C4601A284D7E001271BF /* AppDelegate.m in Sources */,
 				C3D3C45D1A284D7E001271BF /* main.m in Sources */,
