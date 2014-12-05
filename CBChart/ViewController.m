@@ -21,18 +21,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    
+//    NSString *str = @"as";
+//    
+//    int temp = [str intValue];
+//    
+//    if (temp == 0) {
+//        NSLog(@"没数字就是0");
+//    }
+    
+    
+    
+    
     
     CBChartView *chartView = [CBChartView charView];
-//    CBChartView *chartView = [[CBChartView alloc] initWithFrame:CGRectMake(10, 30, 300, 200)];
     [self.view addSubview:chartView];
     
     
+    // bug：如果给的数据有0 如何处理
+    chartView.xValues = @[@"0",@"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17"];
+    chartView.yValues = @[@"75", @"20", @"90", @"50", @"55", @"60", @"50", @"50", @"34", @"asdf"];
     
-    chartView.xValues = @[@"10", @"11", @"aa", @"13", @"14", @"15", @"16", @"as"];
-    chartView.yValues = @[@"75", @"20", @"90", @"50"];
-    chartView.frame = CGRectMake(10, 30, 100, 100);
-    chartView.frame = CGRectMake(10, 30, 300, 400);
-    
+//    chartView.frame = CGRectMake(100, 90, 100, 200);
 //    chartView.shutDefaultAnimation = YES;
 //    [UIView animateWithDuration:1.0 animations:^{
 //        chartView.frame = CGRectMake(10, 30, 300, 400);

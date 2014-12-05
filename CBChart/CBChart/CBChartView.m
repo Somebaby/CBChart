@@ -20,13 +20,13 @@
 
 @interface CBChartView ()
 
-// 虚线网格layer
-@property (weak, nonatomic)   CALayer        *bgLayer;
+@property (strong, nonatomic) CAShapeLayer *lineChart;
 @property (strong, nonatomic) NSMutableArray *xPoints;
 @property (strong, nonatomic) NSMutableArray *yPoints;
 @property (strong, nonatomic) NSDictionary   *textStyleDict;
+@property (assign, nonatomic) CGFloat maxYValue;
 
-// 左边间距要根据具体的值去计算
+// 左边间距要根据具体的坐标值去计算
 @property (assign, nonatomic) CGFloat leftLineMargin;
 @property (assign, nonatomic) BOOL islineDrawDone;
 
@@ -39,7 +39,6 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        
 //        self.layer.backgroundColor = [UIColor purpleColor].CGColor;
 //        self.layer.opacity = 0.4;
         self.isDrawDashLine = YES;
@@ -76,7 +75,6 @@
 -(void)setYValues:(NSArray *)yValues
 {
     _yValues = yValues;
-    
     // 算出合理的左边距
     CGFloat maxStrWidth = 0;
     for (NSString *yValue in yValues) {
@@ -105,6 +103,20 @@
 }
 
 #pragma mark - 懒加载
+-(CAShapeLayer *)lineChart
+{
+    if (!_lineChart) {
+        _lineChart = [CAShapeLayer layer];
+        _lineChart.lineCap = kCALineCapRound;
+        _lineChart.lineJoin = kCALineJoinBevel;
+        _lineChart.fillColor   = [[UIColor whiteColor] CGColor];
+        _lineChart.lineWidth   = 3.0;
+        _lineChart.strokeEnd   = 0.0;
+        [self.layer addSublayer:_lineChart];
+    }
+    return _lineChart;
+}
+
 -(NSMutableArray *)xPoints
 {
     if (!_xPoints) {
@@ -134,7 +146,7 @@
 
 
 #pragma mark - 创建坐标系
--(void)setUpCoordinateSystem // 利用UIView动态画出坐标系
+-(void)setUpCoordinateSystem // 利用UIView作为坐标轴动态画出坐标系
 {
     
     UIView *xCoordinate = [self getLineCoor];
@@ -143,29 +155,13 @@
     [self addSubview:yCoordinate];
     [UIView animateWithDuration:0.3 animations:^{
         xCoordinate.width = xCoordinateWidth + 2;
-        yCoordinate.height = -yCoordinateHeight -2;
+        yCoordinate.height = -yCoordinateHeight - 2;
     } completion:^(BOOL finished) {
         self.islineDrawDone = YES;
         [self createAnimation];
         [self setNeedsDisplay];
     }];
-    
-//    xCoordinate.width = xCoordinateWidth + 2;
-//    yCoordinate.height = -yCoordinateHeight - 2;
-    
-    
-//    CAShapeLayer *xLineLayer = [self getLineCoorBylayer];
-//    CAShapeLayer *yLineLayer = [self getLineCoorBylayer];
-//    [self.layer addSublayer:xLineLayer];
-//    [self.layer addSublayer:yLineLayer];
-//    xLineLayer.bounds = CGRectMake(0, 0, xCoordinateWidth + 2, coorLineWidth);
-//    yLineLayer.bounds = CGRectMake(0, 0, coorLineWidth, -yCoordinateHeight - 2);
-//    self.islineDrawDone = YES;
-//    [self createAnimation];
-//    [self setNeedsDisplay];
 }
-
-
 
 -(void)drawCoorPointAndDashLine
 {
@@ -186,7 +182,59 @@
 {
     if (self.xValues.count != 0 && self.yValues.count != 0) {
         
+        NSMutableArray *funcPoints = [NSMutableArray array];
+        NSInteger pointCount = self.xValues.count;
+        [[UIColor clearColor] set];
+        if (self.xValues.count != self.yValues.count) {
+            pointCount = (self.xValues.count < self.yValues.count ? self.xValues.count : self.yValues.count);
+        }
+        for (int i = 0; i < pointCount; i++) {
+            CGFloat funcXPoint = [self.xPoints[i] CGPointValue].x;
+            CGFloat yValue = [self.yValues[i] floatValue];
+            CGFloat funcYPoint = (yCoordinateHeight) - (yValue / self.maxYValue) * (yCoordinateHeight) + 3;
+            [funcPoints addObject:[NSValue valueWithCGPoint:CGPointMake(funcXPoint, funcYPoint)]];
+        }
+        
+        UIBezierPath *funcLinePath = [UIBezierPath bezierPath];
+        [funcLinePath moveToPoint:[[funcPoints firstObject] CGPointValue]];
+        [funcLinePath setLineWidth:3];
+        [funcLinePath setLineCapStyle:kCGLineCapRound];
+        [funcLinePath setLineJoinStyle:kCGLineJoinRound];
+        int index = 0;
+        for (NSValue *pointValue in funcPoints) {
+            if (index != 0) {
+                [funcLinePath addLineToPoint:[pointValue CGPointValue]];
+                [funcLinePath moveToPoint:[pointValue CGPointValue]];
+                [funcLinePath stroke];
+            }
+            index++;
+        }
+        
+        CAShapeLayer *lineLayer = [self setUpLineLayer];
+        lineLayer.path = funcLinePath.CGPath;
+        lineLayer.strokeColor = [UIColor colorWithRed:77.0/255.0 green:186.0/255.0 blue:122.0/255.0 alpha:1.0f].CGColor;
+        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        pathAnimation.duration = 1.5;
+        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+        pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+        pathAnimation.autoreverses = NO;
+        [lineLayer addAnimation:pathAnimation forKey:@"lineLayerAnimation"];
+        lineLayer.strokeEnd = 1.0;
+        [self.layer addSublayer:lineLayer];
     }
+}
+
+-(CAShapeLayer *)setUpLineLayer
+{
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+//    lineLayer.strokeColor = [UIColor clearColor].CGColor;
+    lineLayer.lineCap = kCALineCapRound;
+    lineLayer.lineJoin = kCALineJoinBevel;
+//    lineLayer.fillColor   = [[UIColor clearColor] CGColor];
+    lineLayer.lineWidth   = 3.0;
+    lineLayer.strokeEnd   = 0.0;
+    return lineLayer;
 }
 
 // 绘制网格
@@ -225,6 +273,7 @@
             CGContextDrawPath(ctx, kCGPathEOFillStroke);
             CGPathRelease(path);
         }
+//        CGContextRelease(ctx);
     }
     
 }
@@ -238,19 +287,8 @@
     lineView.frame = CGRectMake(self.leftLineMargin, self.height - bottomLineMargin, coorLineWidth, coorLineWidth);
     return lineView;
 }
-// 通过layer画坐标轴
-//-(CAShapeLayer *)getLineCoorBylayer
-//{
-//    CAShapeLayer *lineLayer = [[CAShapeLayer alloc] init];
-//    lineLayer.backgroundColor = [UIColor blackColor].CGColor;
-//    lineLayer.opacity = 0.3;
-//    lineLayer.bounds = coordinateOriginFrame;
-//    lineLayer.position = CGPointMake(self.leftLineMargin, yCoordinateHeight + 10);
-//    lineLayer.anchorPoint = CGPointMake(0, 1);
-//    return lineLayer;
-//}
 
-// 用coreGraphics 画坐标轴
+// 通过coreGraphics画坐标轴
 -(void)drawCoordinateXy
 {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -266,7 +304,7 @@
     
     CGMutablePathRef yPath = CGPathCreateMutable();
     CGPathMoveToPoint(yPath, nil, self.leftLineMargin, self.height - bottomLineMargin);
-    CGPathAddLineToPoint(yPath, nil, self.leftLineMargin, self.height - bottomLineMargin - yCoordinateHeight -2);
+    CGPathAddLineToPoint(yPath, nil, self.leftLineMargin, self.height - bottomLineMargin - yCoordinateHeight - 2);
     CGContextAddPath(ctx, yPath);
     CGContextDrawPath(ctx, kCGPathStroke);
     CGPathRelease(yPath);
@@ -280,12 +318,20 @@
         NSUInteger count = values.count;
         for (int i = 0; i < count; i++) {
             NSString *xValue = values[i];
-            CGFloat cX = (xCoordinateWidth / count) * (i + 1) + self.leftLineMargin;
+            
+            CGFloat cX = 0;
+            if ([values[0] isEqualToString:@"0"]) { // 第一个坐标值是0
+                cX = (xCoordinateWidth / (count - 1)) * i + self.leftLineMargin;
+            }else{ // 第一个坐标值不是0
+                cX = (xCoordinateWidth / count) * (i + 1) + self.leftLineMargin;
+            }
             CGFloat cY = self.height - bottomLineMargin;
-            CGSize size = [xValue boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:self.textStyleDict context:nil].size;
-            [xValue drawAtPoint:CGPointMake(cX - size.width * 0.7, cY + 5) withAttributes:self.textStyleDict];
             // 收集坐标点
             [self.xPoints addObject:[NSValue valueWithCGPoint:CGPointMake(cX, cY)]];
+            
+            if (i == 0 && [values[0] isEqualToString:@"0"]) continue;
+            CGSize size = [xValue boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:self.textStyleDict context:nil].size;
+            [xValue drawAtPoint:CGPointMake(cX - size.width * 0.7, cY + 5) withAttributes:self.textStyleDict];
         }
     }
 }
@@ -293,13 +339,17 @@
 -(void)setUpYcoorWithValues:(NSArray *)values
 {
     if (values.count) {
-        NSUInteger count = values.count;
+        NSUInteger count = 4;
+        if (self.yValueCount) {
+            count = self.yValueCount;
+        }
         NSString *maxValue = values[0];
         for (int i = 1; i < count; i++) {
             if ([maxValue floatValue] < [values[i] floatValue]) {
                 maxValue = values[i];
             }
         }
+        self.maxYValue = [maxValue floatValue];
         CGFloat scale = [maxValue floatValue] / count;
         for (int i = 0; i < count; i++) {
             NSString *yValue = [NSString stringWithFormat:@"%.0f", [maxValue floatValue] - (i * scale)];
@@ -307,7 +357,6 @@
             CGFloat cY = i * (yCoordinateHeight / count) + 5;
             CGSize size = [yValue boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:self.textStyleDict context:nil].size;
             [yValue drawAtPoint:CGPointMake(cX - size.width - 5, cY - size.height * 0.5 + 1) withAttributes:self.textStyleDict];
-            
             // 收集坐标点
             [self.yPoints addObject:[NSValue valueWithCGPoint:CGPointMake(cX, cY)]];
         }
