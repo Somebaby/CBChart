@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CBChartView.h"
 #import "CBLineChart.h"
+#import "CBBaseChart.h"
 
 
 @interface ViewController ()
@@ -21,26 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    CBBaseChart *baseChart = [[CBBaseChart alloc] initWithFrame:CGRectMake(10, 100,300, 400)];
 //    
-//    NSString *str = @"as";
 //    
-//    int temp = [str intValue];
-//    
-//    if (temp == 0) {
-//        NSLog(@"没数字就是0");
-//    }
-    
-    
-    
-    
-    
+//    [self.view addSubview:baseChart];
     CBChartView *chartView = [CBChartView charView];
     [self.view addSubview:chartView];
-    
-    
-    // bug：如果给的数据有0 如何处理
     chartView.xValues = @[@"0",@"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17"];
-    chartView.yValues = @[@"75", @"20", @"90", @"50", @"55", @"60", @"50", @"50", @"34", @"asdf"];
+    chartView.yValues = @[@"75", @"20", @"90", @"50", @"55", @"60", @"50", @"50", @"34", @"67"];
     
 //    chartView.frame = CGRectMake(100, 90, 100, 200);
 //    chartView.shutDefaultAnimation = YES;
@@ -49,6 +39,8 @@
 //    }];
     
 }
+
+
 
 -(void)bgroudPaint
 {
