@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C339B5771A415ACD00ED1615 /* CBBaseChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C339B5761A415ACD00ED1615 /* CBBaseChart.m */; };
+		C34A55601A4D05C2006B282F /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C34A555F1A4D05C2006B282F /* UIView+FrameSet.m */; };
+		C34A55631A4D2B41006B282F /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34A55621A4D2B41006B282F /* DemoViewController.m */; };
 		C36569181A2BF4FE0069177A /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36569171A2BF4FE0069177A /* CBChartView.m */; };
-		C36E4F0D1A2DC40E00ABB111 /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C36E4F0C1A2DC40E00ABB111 /* UIView+FrameSet.m */; };
 		C3D3C45D1A284D7E001271BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C45C1A284D7E001271BF /* main.m */; };
 		C3D3C4601A284D7E001271BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C45F1A284D7E001271BF /* AppDelegate.m */; };
 		C3D3C4631A284D7E001271BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C4621A284D7E001271BF /* ViewController.m */; };
@@ -17,7 +17,6 @@
 		C3D3C4681A284D7E001271BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D3C4671A284D7E001271BF /* Images.xcassets */; };
 		C3D3C46B1A284D7E001271BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D3C4691A284D7E001271BF /* LaunchScreen.xib */; };
 		C3D3C4771A284D7E001271BF /* CBChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C4761A284D7E001271BF /* CBChartTests.m */; };
-		C3D3C4831A284DB4001271BF /* CBLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C4821A284DB4001271BF /* CBLineChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +30,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C339B5751A415ACD00ED1615 /* CBBaseChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBaseChart.h; sourceTree = "<group>"; };
-		C339B5761A415ACD00ED1615 /* CBBaseChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBBaseChart.m; sourceTree = "<group>"; };
+		C34A555E1A4D05C2006B282F /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
+		C34A555F1A4D05C2006B282F /* UIView+FrameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameSet.m"; sourceTree = "<group>"; };
+		C34A55611A4D2B41006B282F /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		C34A55621A4D2B41006B282F /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		C36569161A2BF4FE0069177A /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
 		C36569171A2BF4FE0069177A /* CBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBChartView.m; sourceTree = "<group>"; };
-		C36E4F0B1A2DC40E00ABB111 /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
-		C36E4F0C1A2DC40E00ABB111 /* UIView+FrameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameSet.m"; sourceTree = "<group>"; };
 		C3D3C4571A284D7E001271BF /* CBChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D3C45B1A284D7E001271BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D3C45C1A284D7E001271BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,8 +49,6 @@
 		C3D3C4701A284D7E001271BF /* CBChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D3C4751A284D7E001271BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D3C4761A284D7E001271BF /* CBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBChartTests.m; sourceTree = "<group>"; };
-		C3D3C4811A284DB4001271BF /* CBLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLineChart.h; sourceTree = "<group>"; };
-		C3D3C4821A284DB4001271BF /* CBLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLineChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +95,8 @@
 				C3D3C45F1A284D7E001271BF /* AppDelegate.m */,
 				C3D3C4611A284D7E001271BF /* ViewController.h */,
 				C3D3C4621A284D7E001271BF /* ViewController.m */,
+				C34A55611A4D2B41006B282F /* DemoViewController.h */,
+				C34A55621A4D2B41006B282F /* DemoViewController.m */,
 				C3D3C4641A284D7E001271BF /* Main.storyboard */,
 				C3D3C4671A284D7E001271BF /* Images.xcassets */,
 				C3D3C4691A284D7E001271BF /* LaunchScreen.xib */,
@@ -135,14 +134,10 @@
 		C3D3C4801A284D99001271BF /* CBChart */ = {
 			isa = PBXGroup;
 			children = (
-				C339B5751A415ACD00ED1615 /* CBBaseChart.h */,
-				C339B5761A415ACD00ED1615 /* CBBaseChart.m */,
+				C34A555E1A4D05C2006B282F /* UIView+FrameSet.h */,
+				C34A555F1A4D05C2006B282F /* UIView+FrameSet.m */,
 				C36569161A2BF4FE0069177A /* CBChartView.h */,
 				C36569171A2BF4FE0069177A /* CBChartView.m */,
-				C3D3C4811A284DB4001271BF /* CBLineChart.h */,
-				C3D3C4821A284DB4001271BF /* CBLineChart.m */,
-				C36E4F0B1A2DC40E00ABB111 /* UIView+FrameSet.h */,
-				C36E4F0C1A2DC40E00ABB111 /* UIView+FrameSet.m */,
 			);
 			path = CBChart;
 			sourceTree = "<group>";
@@ -248,12 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D3C4631A284D7E001271BF /* ViewController.m in Sources */,
-				C339B5771A415ACD00ED1615 /* CBBaseChart.m in Sources */,
 				C3D3C4601A284D7E001271BF /* AppDelegate.m in Sources */,
+				C34A55601A4D05C2006B282F /* UIView+FrameSet.m in Sources */,
+				C34A55631A4D2B41006B282F /* DemoViewController.m in Sources */,
 				C3D3C45D1A284D7E001271BF /* main.m in Sources */,
 				C36569181A2BF4FE0069177A /* CBChartView.m in Sources */,
-				C3D3C4831A284DB4001271BF /* CBLineChart.m in Sources */,
-				C36E4F0D1A2DC40E00ABB111 /* UIView+FrameSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

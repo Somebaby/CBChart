@@ -183,26 +183,6 @@
             [funcPoints addObject:[NSValue valueWithCGPoint:CGPointMake(funcXPoint, funcYPoint)]];
         }
         
-        CGMutablePathRef funcLinePath = CGPathCreateMutable();
-        CGPoint beginPoint = [funcPoints[0] CGPointValue];
-        CGPathMoveToPoint(funcLinePath, NULL, beginPoint.x, beginPoint.y);
-        
-        int index = 0;
-        for (NSValue *pointValue in funcPoints) {
-            CGPoint endPonit = [pointValue CGPointValue];
-            
-            if (index != 0) {
-                CGPoint controlPoint = CGPointMake((endPonit.x - beginPoint.x) * 0.5, (endPonit.y - beginPoint.y) * 0.5);
-                CGPathAddQuadCurveToPoint(funcLinePath, NULL, controlPoint.x, controlPoint.y, endPonit.x, endPonit.y);
-                CGPathMoveToPoint(funcLinePath, NULL, endPonit.x, endPonit.y);
-                beginPoint = endPonit;
-//                [funcLinePath addLineToPoint:[pointValue CGPointValue]];
-//                [funcLinePath moveToPoint:[pointValue CGPointValue]];
-//                [funcLinePath stroke];
-            }
-            index++;
-        }
-        /*
         UIBezierPath *funcLinePath = [UIBezierPath bezierPath];
         [funcLinePath moveToPoint:[[funcPoints firstObject] CGPointValue]];
         [funcLinePath setLineCapStyle:kCGLineCapRound];
@@ -215,12 +195,10 @@
                 [funcLinePath stroke];
             }
             index++;
-        }*/
+        }
         
         CAShapeLayer *lineLayer = [self setUpLineLayer];
-        lineLayer.path = funcLinePath;
-        CGPathRelease(funcLinePath);
-//        lineLayer.strokeColor = [UIColor colorWithRed:77.0/255.0 green:186.0/255.0 blue:122.0/255.0 alpha:1.0f].CGColor;
+        lineLayer.path = funcLinePath.CGPath;
         CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
         pathAnimation.duration = 1.5;
         pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -392,4 +370,6 @@
 }
 
 @end
+
+
 
