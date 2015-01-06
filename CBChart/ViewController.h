@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ViewController;
 
-@interface ViewController : UITableViewController
+
+
+@interface ViewController : UIViewController
 
 
 @end

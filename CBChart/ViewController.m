@@ -7,10 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "DemoViewController.h"
+#import "Demo1ViewController.h"
+#import "Demo2ViewController.h"
 
 
 @interface ViewController ()
+
+- (IBAction)btnClick:(UIButton *)sender;
+
+
 
 @end
 
@@ -20,48 +25,20 @@
     
     [super viewDidLoad];
     
-    
-    
 }
 
-#pragma mark - tableDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
-}
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"CBChartDemo-%lud", indexPath.row];
-    
-    return cell;
-}
 
-#pragma mark - tableDelegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIViewController *viewController = [[NSClassFromString(@"DemoViewController") alloc] init];
+- (IBAction)btnClick:(UIButton *)sender {
     
-    [self.navigationController showViewController:viewController sender:@"hello"];
-    
-    
-//    UINavigationController *nav = self.navigationController;
-//    
-//    
-//    [self.navigationController addChildViewController:viewController];
-//    
-//    UIView *rootView = self.view.superview;
-//    
-//    CATransition *pushAnimation = [CATransition animation];
-//    pushAnimation.duration = 0.5;
+    if (sender.tag == 1) {
+        Demo1ViewController *demo1 = [[Demo1ViewController alloc] init];
+        [self.navigationController pushViewController:demo1 animated:YES];
+    }else{
+        Demo2ViewController *demo2 = [[Demo2ViewController alloc] init];
+        [self.navigationController pushViewController:demo2 animated:YES];
+    }
     
 }
-
 @end

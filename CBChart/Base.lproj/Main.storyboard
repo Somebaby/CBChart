@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3rS-Li-tp5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3rS-Li-tp5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="Ns6-2u-AYc">
-            <objects>
-                <tableViewController id="k3c-0x-U3u" customClass="ViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="euC-Rf-XGe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="k3c-0x-U3u" id="Wh6-gR-vdF"/>
-                            <outlet property="delegate" destination="k3c-0x-U3u" id="sWD-SL-HfY"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ocn-Pm-ZzW"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="opI-D1-zwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="115" y="206"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dDL-xH-bVs">
             <objects>
@@ -33,12 +15,67 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="k3c-0x-U3u" kind="relationship" relationship="rootViewController" id="DGy-9a-NP4"/>
+                        <segue destination="zgo-W5-mIH" kind="relationship" relationship="rootViewController" id="a6S-IA-o6r"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRi-l7-Alu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="206"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="B2G-NR-U0b">
+            <objects>
+                <viewController id="zgo-W5-mIH" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTh-6q-P1T"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rz0-5K-meE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rpE-lG-pwC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-1v-yQv">
+                                <rect key="frame" x="93" y="243" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.28931451609999997" green="0.66970136089999999" blue="0.96925403229999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="demo2">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClick:" destination="zgo-W5-mIH" eventType="touchUpInside" id="ar3-HD-uJY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMJ-5A-qhw">
+                                <rect key="frame" x="93" y="167" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.28931451609999997" green="0.66970136089999999" blue="0.96925403229999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="kx9-j7-GTZ"/>
+                                </constraints>
+                                <state key="normal" title="demo1">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClick:" destination="zgo-W5-mIH" eventType="touchUpInside" id="JaV-P5-5qo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eov-1v-yQv" firstAttribute="top" secondItem="bMJ-5A-qhw" secondAttribute="bottom" constant="46" id="9x6-vR-DrL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eov-1v-yQv" secondAttribute="trailing" constant="76" id="JgK-PI-lGk"/>
+                            <constraint firstItem="bMJ-5A-qhw" firstAttribute="top" secondItem="oTh-6q-P1T" secondAttribute="bottom" constant="103" id="jGe-6S-JSI"/>
+                            <constraint firstItem="bMJ-5A-qhw" firstAttribute="leading" secondItem="rpE-lG-pwC" secondAttribute="leadingMargin" constant="77" id="lLD-yh-vfv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMJ-5A-qhw" secondAttribute="trailing" constant="76" id="o8a-XD-M3v"/>
+                            <constraint firstItem="Rz0-5K-meE" firstAttribute="top" secondItem="eov-1v-yQv" secondAttribute="bottom" constant="295" id="pwr-Sf-zJV"/>
+                            <constraint firstItem="eov-1v-yQv" firstAttribute="leading" secondItem="rpE-lG-pwC" secondAttribute="leadingMargin" constant="77" id="tLq-Q2-FbC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QyS-cz-5iN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch3-HN-xUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101" y="243"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

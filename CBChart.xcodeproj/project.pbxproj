@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3283E391A5B6BEA004D8181 /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3283E381A5B6BEA004D8181 /* Demo1ViewController.m */; };
+		C3283E3C1A5B6BF5004D8181 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3283E3B1A5B6BF5004D8181 /* Demo2ViewController.m */; };
 		C34A55601A4D05C2006B282F /* UIView+FrameSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C34A555F1A4D05C2006B282F /* UIView+FrameSet.m */; };
-		C34A55631A4D2B41006B282F /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34A55621A4D2B41006B282F /* DemoViewController.m */; };
 		C36569181A2BF4FE0069177A /* CBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36569171A2BF4FE0069177A /* CBChartView.m */; };
 		C3D3C45D1A284D7E001271BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C45C1A284D7E001271BF /* main.m */; };
 		C3D3C4601A284D7E001271BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3C45F1A284D7E001271BF /* AppDelegate.m */; };
@@ -30,10 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3283E371A5B6BEA004D8181 /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
+		C3283E381A5B6BEA004D8181 /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
+		C3283E3A1A5B6BF5004D8181 /* Demo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
+		C3283E3B1A5B6BF5004D8181 /* Demo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
 		C34A555E1A4D05C2006B282F /* UIView+FrameSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameSet.h"; sourceTree = "<group>"; };
 		C34A555F1A4D05C2006B282F /* UIView+FrameSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameSet.m"; sourceTree = "<group>"; };
-		C34A55611A4D2B41006B282F /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		C34A55621A4D2B41006B282F /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		C36569161A2BF4FE0069177A /* CBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChartView.h; sourceTree = "<group>"; };
 		C36569171A2BF4FE0069177A /* CBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBChartView.m; sourceTree = "<group>"; };
 		C3D3C4571A284D7E001271BF /* CBChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,8 +98,10 @@
 				C3D3C45F1A284D7E001271BF /* AppDelegate.m */,
 				C3D3C4611A284D7E001271BF /* ViewController.h */,
 				C3D3C4621A284D7E001271BF /* ViewController.m */,
-				C34A55611A4D2B41006B282F /* DemoViewController.h */,
-				C34A55621A4D2B41006B282F /* DemoViewController.m */,
+				C3283E371A5B6BEA004D8181 /* Demo1ViewController.h */,
+				C3283E381A5B6BEA004D8181 /* Demo1ViewController.m */,
+				C3283E3A1A5B6BF5004D8181 /* Demo2ViewController.h */,
+				C3283E3B1A5B6BF5004D8181 /* Demo2ViewController.m */,
 				C3D3C4641A284D7E001271BF /* Main.storyboard */,
 				C3D3C4671A284D7E001271BF /* Images.xcassets */,
 				C3D3C4691A284D7E001271BF /* LaunchScreen.xib */,
@@ -243,10 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D3C4631A284D7E001271BF /* ViewController.m in Sources */,
+				C3283E391A5B6BEA004D8181 /* Demo1ViewController.m in Sources */,
 				C3D3C4601A284D7E001271BF /* AppDelegate.m in Sources */,
 				C34A55601A4D05C2006B282F /* UIView+FrameSet.m in Sources */,
-				C34A55631A4D2B41006B282F /* DemoViewController.m in Sources */,
 				C3D3C45D1A284D7E001271BF /* main.m in Sources */,
+				C3283E3C1A5B6BF5004D8181 /* Demo2ViewController.m in Sources */,
 				C36569181A2BF4FE0069177A /* CBChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

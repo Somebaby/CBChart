@@ -57,7 +57,7 @@
 {
     CBChartView *chartView = [[self alloc] init];
     // 默认值
-    chartView.frame = CGRectMake(10, 30, 300, 220);
+    chartView.frame = CGRectMake(10, 70, 300, 220);
     return chartView;
 }
 
