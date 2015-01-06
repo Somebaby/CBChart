@@ -33,6 +33,9 @@ generate line chart or bar chart and so on with values
 	@property (assign, nonatomic) CGFloat chartWidth;
 	/** 颜色 */
 	@property (strong, nonatomic) UIColor *chartColor;
+	
+	/** 图表类型 暂时只支持折线 更多精彩 敬请期待 */
+	@property (assign, nonatomic) CBChartType chartType;
 
 ---
 
